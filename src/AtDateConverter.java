@@ -5,7 +5,7 @@
  */
 public class AtDateConverter {
 
-    private static String getAtDateBits(int year, int month, int day, int hour, int min, int sec) {
+    public static String getAtDateBits(int year, int month, int day, int hour, int min, int sec) {
 
         StringBuilder sb = new StringBuilder();
 
