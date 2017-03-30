@@ -1,8 +1,9 @@
-
 /**
  *
  * @author Amer Harb
  */
+package AtDateConverter;
+
 public class AtDateConverter {
 
     public static String getAtDateBits(int year, int month, int day, int hour, int min, int sec) {
@@ -29,14 +30,6 @@ public class AtDateConverter {
             sb.append("0" + year);
         } else if (year < 10000) {
             sb.append(year);
-        } else {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        if (min >= 0 && min < 10) {
-            sb.append("0" + min);
-        } else if (min >= 10 && min < 60) {
-            sb.append(min);
         } else {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
@@ -72,6 +65,22 @@ public class AtDateConverter {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
+        if (hour >= 0 && hour < 10) {
+            sb.append("0" + hour);
+        } else if (hour >= 10 && hour < 24) {
+            sb.append(hour);
+        } else {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        if (min >= 0 && min < 10) {
+            sb.append("0" + min);
+        } else if (min >= 10 && min < 60) {
+            sb.append(min);
+        } else {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
         if (sec >= 0 && sec < 10) {
             sb.append("0" + sec);
         } else if (sec >= 10 && sec < 60) {
@@ -80,7 +89,7 @@ public class AtDateConverter {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
-        return getAtDateBits(sb.toString());
+        return sb.toString();
     }
 
     private static String getAtDateBits(int year, int month, int day, int hour, int min) {
