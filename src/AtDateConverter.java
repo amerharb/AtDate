@@ -54,15 +54,20 @@ public class AtDateConverter {
             maxDay = 31;
         } else if (month == 4 || month == 6 || month == 9 || month == 11) {
             maxDay = 30;
+        } else if (month == 2) {
+            if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
+                maxDay = 29;
+            } else {
+                maxDay = 28;
+            }
         } else {
-            maxDay = 28;
-            //TODO: leap year
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
         if (day >= 1 && day < 10) {
             sb.append("0" + day);
-        } else if (month >= 10 && month <= 12) {
-            sb.append(month);
+        } else if (day <= maxDay) {
+            sb.append(day);
         } else {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
